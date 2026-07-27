@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif">
+  <rect x="8" y="8" width="1184" height="464" rx="16" fill="#0D1117" stroke="#30363D"/>
+
+  <text x="40" y="52" fill="#E6EDF3" font-size="24" font-weight="700" letter-spacing="-.3">Two detectors, one pass</text>
+  <text x="40" y="78" fill="#8B949E" font-size="14">Regex catches the keys you can name. Entropy catches the ones you can&#8217;t.</text>
+
+  <line x1="510" y1="108" x2="510" y2="440" stroke="#21262D" stroke-width="1"/>
+
+  <!-- ============ LEFT: REGEX ============ -->
+  <rect x="40" y="120" width="60" height="22" rx="5" fill="rgba(63,185,80,.12)" stroke="#2C5138"/>
+  <text x="70" y="135" text-anchor="middle" fill="#3FB950" font-size="11" font-weight="600">regex</text>
+  <text x="40" y="172" fill="#E6EDF3" font-size="16" font-weight="600">Anchored to provider prefixes</text>
+  <text x="40" y="196" fill="#8B949E" font-size="13">Each rule keys off a known shape, so it rarely</text>
+  <text x="40" y="214" fill="#8B949E" font-size="13">fires on ordinary text.</text>
+
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <rect x="40" y="240" width="450" height="34" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="58" y="262" fill="#3FB950" font-size="13">AKIA&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</text>
+    <text x="470" y="262" text-anchor="end" fill="#8B949E" font-size="12">AWS key</text>
+
+    <rect x="40" y="280" width="450" height="34" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="58" y="302" fill="#3FB950" font-size="13">ghp_&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</text>
+    <text x="470" y="302" text-anchor="end" fill="#8B949E" font-size="12">GitHub token</text>
+
+    <rect x="40" y="320" width="450" height="34" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="58" y="342" fill="#3FB950" font-size="13">sk_live_&#9679;&#9679;&#9679;&#9679;&#9679;</text>
+    <text x="470" y="342" text-anchor="end" fill="#8B949E" font-size="12">Stripe key</text>
+  </g>
+
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace" fill="#8B949E" font-size="11.5">
+    <rect x="40" y="378" width="70" height="24" rx="12" fill="#161B22" stroke="#30363D"/><text x="75" y="394" text-anchor="middle">Google</text>
+    <rect x="118" y="378" width="60" height="24" rx="12" fill="#161B22" stroke="#30363D"/><text x="148" y="394" text-anchor="middle">Slack</text>
+    <rect x="186" y="378" width="52" height="24" rx="12" fill="#161B22" stroke="#30363D"/><text x="212" y="394" text-anchor="middle">JWT</text>
+    <rect x="246" y="378" width="90" height="24" rx="12" fill="#161B22" stroke="#30363D"/><text x="291" y="394" text-anchor="middle">SendGrid</text>
+    <rect x="344" y="378" width="110" height="24" rx="12" fill="#161B22" stroke="#30363D"/><text x="399" y="394" text-anchor="middle">private keys</text>
+  </g>
+
+  <!-- ============ RIGHT: ENTROPY ============ -->
+  <rect x="540" y="120" width="70" height="22" rx="5" fill="rgba(227,179,65,.12)" stroke="#4A3F1E"/>
+  <text x="575" y="135" text-anchor="middle" fill="#E3B341" font-size="11" font-weight="600">entropy</text>
+
+  <rect x="540" y="158" width="620" height="46" rx="8" fill="#161B22" stroke="#30363D"/>
+  <text x="850" y="187" text-anchor="middle" fill="#E6EDF3" font-size="18" font-family="ui-monospace,monospace">H = &#8722;&#931; p(x) &#183; log&#8322; p(x)</text>
+
+  <text x="540" y="234" fill="#8B949E" font-size="13">Score each base64/hex run by randomness. Flag what clears the</text>
+  <text x="540" y="252" fill="#8B949E" font-size="13">threshold &#8212; the allowlist rescues the false positives.</text>
+
+  <!-- bar chart -->
+  <!-- scale: x 560..1120 = 0..6 bits  (93.3 px/bit); threshold 4.5 -> x=560+420=980 -->
+  <!-- threshold line -->
+  <line x1="980" y1="280" x2="980" y2="430" stroke="#E3B341" stroke-width="1.3" stroke-dasharray="4 3" opacity=".7"/>
+  <text x="980" y="296" text-anchor="middle" fill="#E3B341" font-size="11" font-family="ui-monospace,monospace">4.5</text>
+
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <!-- row1: normal text, below -->
+    <text x="560" y="318" fill="#8B949E" font-size="12">"password123"</text>
+    <rect x="560" y="324" width="560" height="16" rx="4" fill="#161B22"/>
+    <rect x="560" y="324" width="297" height="16" rx="4" fill="#484F58"/>
+    <text x="866" y="337" fill="#6E7681" font-size="11">3.18 &#183; below threshold</text>
+
+    <!-- row2: high entropy but allowlisted -->
+    <text x="560" y="362" fill="#8B949E" font-size="12">"wJalrXUtnFEMI&#8230;EXAMPLEKEY"</text>
+    <rect x="560" y="368" width="560" height="16" rx="4" fill="#161B22"/>
+    <rect x="560" y="368" width="429" height="16" rx="4" fill="#E3B341"/>
+    <text x="998" y="381" fill="#E3B341" font-size="11">4.6 &#183; filtered (EXAMPLE)</text>
+
+    <!-- row3: flagged -->
+    <text x="560" y="406" fill="#8B949E" font-size="12">"hT8kLm2pQvR9wXzA&#8230;V8wY"</text>
+    <rect x="560" y="412" width="560" height="16" rx="4" fill="#161B22"/>
+    <rect x="560" y="412" width="472" height="16" rx="4" fill="#F85149"/>
+    <text x="1042" y="425" fill="#F85149" font-size="11" font-weight="600">5.06 &#183; FLAGGED</text>
+  </g>
+</svg>

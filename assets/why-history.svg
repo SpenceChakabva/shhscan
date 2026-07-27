@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#E3B341"/>
+    </marker>
+  </defs>
+  <rect x="8" y="8" width="1184" height="454" rx="16" fill="#0D1117" stroke="#30363D"/>
+
+  <text x="40" y="52" fill="#E6EDF3" font-size="24" font-weight="700" letter-spacing="-.3">A clean working tree is not a clean repo</text>
+  <text x="40" y="78" fill="#8B949E" font-size="14">Deleting a secret doesn&#8217;t remove it &#8212; it stays in the history and the image. That&#8217;s where <tspan fill="#3FB950" font-weight="600">shhscan</tspan> looks.</text>
+
+  <!-- divider -->
+  <line x1="600" y1="112" x2="600" y2="438" stroke="#21262D" stroke-width="1"/>
+
+  <!-- ================= LEFT: GIT HISTORY ================= -->
+  <text x="40" y="140" fill="#6E7681" font-size="11" letter-spacing="2.5">GIT HISTORY</text>
+
+  <!-- commit line -->
+  <line x1="90" y1="250" x2="540" y2="250" stroke="#30363D" stroke-width="2"/>
+  <circle cx="130" cy="250" r="9" fill="#F85149" stroke="#0D1117" stroke-width="3"/>
+  <circle cx="315" cy="250" r="9" fill="#3FB950" stroke="#0D1117" stroke-width="3"/>
+  <circle cx="500" cy="250" r="9" fill="#8B949E" stroke="#0D1117" stroke-width="3"/>
+
+  <!-- commit A: secret added -->
+  <rect x="60" y="158" width="150" height="66" rx="8" fill="#161B22" stroke="#5A2A2A"/>
+  <text x="75" y="180" fill="#8B949E" font-size="10.5" font-family="ui-monospace,monospace">commit 4fa5ef02</text>
+  <text x="75" y="200" fill="#F85149" font-size="12" font-family="ui-monospace,monospace">KEY = "sk_live_&#8230;"</text>
+  <text x="75" y="216" fill="#6E7681" font-size="10.5">secret committed</text>
+  <line x1="130" y1="224" x2="130" y2="241" stroke="#5A2A2A" stroke-width="1.5"/>
+  <text x="130" y="284" text-anchor="middle" fill="#C9D1D9" font-size="12" font-weight="600">commit A</text>
+
+  <!-- commit B: moved to env -->
+  <rect x="240" y="158" width="150" height="66" rx="8" fill="#161B22" stroke="#2C5138"/>
+  <text x="255" y="180" fill="#8B949E" font-size="10.5" font-family="ui-monospace,monospace">commit 9c1de0a</text>
+  <text x="255" y="200" fill="#3FB950" font-size="12" font-family="ui-monospace,monospace">KEY = os.environ</text>
+  <text x="255" y="216" fill="#6E7681" font-size="10.5">"fixed" the file</text>
+  <line x1="315" y1="224" x2="315" y2="241" stroke="#2C5138" stroke-width="1.5"/>
+  <text x="315" y="284" text-anchor="middle" fill="#C9D1D9" font-size="12" font-weight="600">commit B</text>
+
+  <!-- HEAD -->
+  <line x1="500" y1="241" x2="500" y2="224" stroke="#30363D" stroke-width="1.5"/>
+  <rect x="440" y="180" width="120" height="44" rx="8" fill="#161B22" stroke="#30363D"/>
+  <text x="500" y="200" text-anchor="middle" fill="#E6EDF3" font-size="12" font-weight="600" font-family="ui-monospace,monospace">HEAD</text>
+  <text x="500" y="216" text-anchor="middle" fill="#6E7681" font-size="10.5">working tree: clean</text>
+  <text x="500" y="284" text-anchor="middle" fill="#C9D1D9" font-size="12" font-weight="600">now</text>
+
+  <!-- callout back to commit A -->
+  <path d="M330,340 C250,340 190,320 140,268" stroke="#E3B341" stroke-width="1.6" fill="none" marker-end="url(#a2)" stroke-dasharray="4 3"/>
+  <rect x="330" y="322" width="238" height="40" rx="8" fill="#1C1808" stroke="#4A3F1E"/>
+  <text x="349" y="347" fill="#E3B341" font-size="12.5">the key still lives in <tspan font-family="ui-monospace,monospace">commit A</tspan></text>
+
+  <text x="40" y="410" fill="#8B949E" font-size="13">shhscan scans the added lines of <tspan fill="#E6EDF3">every commit</tspan>, so a</text>
+  <text x="40" y="430" fill="#8B949E" font-size="13">deleted-but-committed secret has nowhere to hide.</text>
+
+  <!-- ================= RIGHT: DOCKER IMAGE ================= -->
+  <text x="632" y="140" fill="#6E7681" font-size="11" letter-spacing="2.5">DOCKER IMAGE</text>
+
+  <!-- layer stack -->
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <!-- L3 top -->
+    <rect x="700" y="168" width="380" height="46" rx="7" fill="#161B22" stroke="#30363D"/>
+    <text x="720" y="190" fill="#8B949E" font-size="12">L3</text>
+    <text x="752" y="190" fill="#C9D1D9" font-size="12.5">RUN rm app/.env</text>
+    <text x="752" y="205" fill="#6E7681" font-size="10.5" font-family="-apple-system,sans-serif">removes the file from the final tree</text>
+
+    <!-- L2 -->
+    <rect x="700" y="222" width="380" height="46" rx="7" fill="#161B22" stroke="#30363D"/>
+    <text x="720" y="244" fill="#8B949E" font-size="12">L2</text>
+    <text x="752" y="244" fill="#C9D1D9" font-size="12.5">RUN npm ci &amp;&amp; build</text>
+
+    <!-- L1 bottom - the secret -->
+    <rect x="700" y="276" width="380" height="52" rx="7" fill="#1A1012" stroke="#5A2A2A"/>
+    <text x="720" y="300" fill="#8B949E" font-size="12">L1</text>
+    <text x="752" y="300" fill="#F85149" font-size="12.5">COPY . .  &#8594; bakes in app/.env</text>
+    <text x="752" y="317" fill="#6E7681" font-size="10.5" font-family="-apple-system,sans-serif">the key is stored in this layer forever</text>
+  </g>
+
+  <!-- callout -->
+  <rect x="700" y="346" width="380" height="40" rx="8" fill="#1C1808" stroke="#4A3F1E"/>
+  <text x="719" y="371" fill="#E3B341" font-size="12.5">a later layer can&#8217;t delete what an earlier one saved</text>
+
+  <text x="632" y="414" fill="#8B949E" font-size="13">shhscan unpacks each layer of a <tspan fill="#E6EDF3" font-family="ui-monospace,monospace">docker save</tspan> tarball</text>
+  <text x="632" y="434" fill="#8B949E" font-size="13">and finds the secret sitting in layer L1.</text>
+</svg>

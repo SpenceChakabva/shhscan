@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#6E7681"/>
+    </marker>
+    <marker id="arg" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 Z" fill="#3FB950"/>
+    </marker>
+  </defs>
+
+  <rect x="8" y="8" width="1184" height="424" rx="16" fill="#0D1117" stroke="#30363D"/>
+
+  <!-- header -->
+  <text x="40" y="56" fill="#E6EDF3" font-size="30" font-weight="700" letter-spacing="-.5">shh<tspan fill="#3FB950">scan</tspan></text>
+  <text x="40" y="82" fill="#8B949E" font-size="14" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,monospace">secret-scanning pipeline &#183; git history &#183; filesystem &#183; docker layers</text>
+  <text x="1160" y="52" text-anchor="end" fill="#6E7681" font-size="12" font-family="ui-monospace,monospace">go &#183; zero deps &#183; MIT</text>
+
+  <!-- column labels -->
+  <text x="170" y="122" text-anchor="middle" fill="#6E7681" font-size="11" letter-spacing="2.5">SOURCES</text>
+  <text x="565" y="122" text-anchor="middle" fill="#6E7681" font-size="11" letter-spacing="2.5">SCANNER</text>
+  <text x="995" y="122" text-anchor="middle" fill="#6E7681" font-size="11" letter-spacing="2.5">OUTPUT</text>
+
+  <!-- SOURCES -->
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <rect x="40" y="140" width="260" height="66" rx="9" fill="#161B22" stroke="#30363D"/>
+    <text x="60" y="172" fill="#E6EDF3" font-size="16" font-weight="600">git history</text>
+    <text x="60" y="192" fill="#8B949E" font-size="11.5">every commit &amp; diff</text>
+
+    <rect x="40" y="218" width="260" height="66" rx="9" fill="#161B22" stroke="#30363D"/>
+    <text x="60" y="250" fill="#E6EDF3" font-size="16" font-weight="600">filesystem</text>
+    <text x="60" y="270" fill="#8B949E" font-size="11.5">recursive tree walk</text>
+
+    <rect x="40" y="296" width="260" height="66" rx="9" fill="#161B22" stroke="#30363D"/>
+    <text x="60" y="328" fill="#E6EDF3" font-size="16" font-weight="600">docker layers</text>
+    <text x="60" y="348" fill="#8B949E" font-size="11.5">docker save tarball</text>
+  </g>
+
+  <!-- arrows sources -> scanner -->
+  <g stroke="#6E7681" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <path d="M300,173 C322,173 322,235 348,246"/>
+    <path d="M300,251 H345"/>
+    <path d="M300,329 C322,329 322,267 348,256"/>
+  </g>
+
+  <!-- SCANNER panel -->
+  <rect x="332" y="134" width="466" height="248" rx="12" fill="#0E1420" stroke="#30363D"/>
+  <rect x="352" y="152" width="210" height="78" rx="8" fill="#161B22" stroke="#2C5138"/>
+  <text x="370" y="180" fill="#3FB950" font-size="15" font-weight="600" font-family="ui-monospace,monospace">regex rules</text>
+  <text x="370" y="200" fill="#8B949E" font-size="11">named providers:</text>
+  <text x="370" y="216" fill="#8B949E" font-size="11">AWS &#183; GitHub &#183; Stripe &#183; JWT</text>
+
+  <rect x="568" y="152" width="212" height="78" rx="8" fill="#161B22" stroke="#4A3F1E"/>
+  <text x="586" y="180" fill="#E3B341" font-size="15" font-weight="600" font-family="ui-monospace,monospace">entropy</text>
+  <text x="586" y="200" fill="#8B949E" font-size="11">Shannon bits / char</text>
+  <text x="586" y="216" fill="#8B949E" font-size="11">b64 &#8805; 4.5 &#183; hex &#8805; 3.0</text>
+
+  <g stroke="#3FB950" stroke-width="1.5" fill="none" marker-end="url(#arg)">
+    <path d="M457,230 V248"/>
+    <path d="M674,230 V248"/>
+  </g>
+
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <rect x="352" y="252" width="428" height="30" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="566" y="272" text-anchor="middle" fill="#C9D1D9" font-size="12.5">allowlist &#183; drop UUIDs, hashes, EXAMPLE</text>
+    <rect x="352" y="288" width="428" height="30" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="566" y="308" text-anchor="middle" fill="#C9D1D9" font-size="12.5">de-duplicate &#183; report each secret once</text>
+    <rect x="352" y="324" width="428" height="30" rx="6" fill="#161B22" stroke="#30363D"/>
+    <text x="566" y="344" text-anchor="middle" fill="#C9D1D9" font-size="12.5">redact &#183; ghp_&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;3bC6</text>
+  </g>
+
+  <!-- arrow scanner -> output -->
+  <path d="M798,256 H828" stroke="#6E7681" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+
+  <!-- OUTPUT -->
+  <g font-family="ui-monospace,'SF Mono',Consolas,monospace">
+    <rect x="830" y="150" width="330" height="56" rx="9" fill="#161B22" stroke="#30363D"/>
+    <text x="850" y="176" fill="#E6EDF3" font-size="15" font-weight="600">human report</text>
+    <text x="850" y="194" fill="#8B949E" font-size="11.5">grouped, redacted findings</text>
+
+    <rect x="830" y="218" width="330" height="56" rx="9" fill="#161B22" stroke="#30363D"/>
+    <text x="850" y="244" fill="#E6EDF3" font-size="15" font-weight="600">--json</text>
+    <text x="850" y="262" fill="#8B949E" font-size="11.5">machine-readable for CI</text>
+
+    <rect x="830" y="290" width="160" height="72" rx="9" fill="#0F1A12" stroke="#2C5138"/>
+    <text x="910" y="326" text-anchor="middle" fill="#3FB950" font-size="26" font-weight="700">0</text>
+    <text x="910" y="348" text-anchor="middle" fill="#8B949E" font-size="11.5">clean</text>
+
+    <rect x="1000" y="290" width="160" height="72" rx="9" fill="#1A1012" stroke="#5A2A2A"/>
+    <text x="1080" y="326" text-anchor="middle" fill="#F85149" font-size="26" font-weight="700">1</text>
+    <text x="1080" y="348" text-anchor="middle" fill="#8B949E" font-size="11.5">secrets found</text>
+  </g>
+  <text x="995" y="384" text-anchor="middle" fill="#6E7681" font-size="11" font-family="ui-monospace,monospace">exit code &#8594; fails the CI build</text>
+</svg>
