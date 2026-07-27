@@ -1,0 +1,20 @@
+# Normalize line endings across platforms.
+* text=auto eol=lf
+
+# Shell scripts MUST stay LF or they break on Linux (CI runner, containers).
+*.sh    text eol=lf
+
+# PowerShell is fine either way; keep CRLF so it's native on Windows.
+*.ps1   text eol=crlf
+
+# Go, config, docs: LF everywhere.
+*.go    text eol=lf
+*.md    text eol=lf
+*.mod   text eol=lf
+*.yml   text eol=lf
+
+# Binaries: never touch.
+*.exe   binary
+*.tar   binary
+*.gz    binary
+*.zip   binary

@@ -1,0 +1,19 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so the self-scan is meaningful
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go vet ./...
+      - run: go test ./... -v
+      - run: go build -o shhscan .
+      - name: Self-scan git history for secrets
+        # exclude our own test fixtures: test files and the seed script contain
+        # secret-shaped strings by design (charset constants use shhscan:allow).
+        run: ./shhscan git . --exclude '*_test.go,testdata/*,scripts/seed-testdata.*'

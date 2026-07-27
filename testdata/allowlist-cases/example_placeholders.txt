@@ -1,0 +1,6 @@
+# Canonical docs/example values. Real-looking shape, but placeholders -> must NOT flag.
+AWS_ACCESS_KEY_ID     = AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+API_KEY               = your_api_key_here
+PASSWORD              = changeme
+TOKEN                 = xxxxxxxxxxxxxxxxxxxxxxxx

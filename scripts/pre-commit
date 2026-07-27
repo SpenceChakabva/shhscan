@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Copy to .git/hooks/pre-commit and chmod +x.
+# Blocks a commit if shhscan finds secrets in the working tree.
+set -e
+if ! command -v shhscan >/dev/null 2>&1; then
+  echo "shhscan not installed; skipping secret scan" >&2
+  exit 0
+fi
+shhscan fs . || {
+  echo "commit blocked: secrets detected (see above)" >&2
+  exit 1
+}

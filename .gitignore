@@ -1,0 +1,8 @@
+/shhscan
+/shhscan-bin
+/shhscan.exe
+*.exe
+/.demo/
+/dist/
+*.tar
+*.out

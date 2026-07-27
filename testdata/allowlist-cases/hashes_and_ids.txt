@@ -1,0 +1,6 @@
+# High-entropy strings that are NOT secrets. shhscan must report ZERO findings here.
+request_id  = 550e8400-e29b-41d4-a716-446655440000
+trace_id    = f47ac10b-58cc-4372-a567-0e02b2c3d479
+git_commit  = da39a3ee5e6b4b0d3255bfef95601890afd80709
+sha256_sum  = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+etag        = 9e107d9d372bb6826bd81d3542a419d6
